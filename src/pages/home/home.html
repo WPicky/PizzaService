@@ -1,17 +1,64 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button class="homeButt">
+        <ion-icon ios="ios-basket" md="md-basket"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons (click)="reload()">
+      <button class="homeButt">
+        <ion-icon ios="ios-refresh" md="md-refresh"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+  <ion-searchbar
+    [(ngModel)]="idDeLaPizza"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="locateId()"
+    (ionCancel)="locateId()">
+  </ion-searchbar>
+
+
+  <h4 *ngIf="itemSearched"> Résultats de la recherche : </h4>
+  <ion-card *ngFor="let items of itemSearched">
+    <img [src]="items.picture" *ngIf="items.picture" />
+    <ion-card-content>
+      <ion-card-title>
+        {{ items.name }}
+      </ion-card-title>
+      <p>
+        {{ items.desc }}
+      </p>
+    </ion-card-content>
+    <ion-buttons align="center">
+      <button ion-button color="secondary"> <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+        &nbsp;Ajouter au panier
+      </button>
+    </ion-buttons>
+  </ion-card>
+
+
+  <ion-card *ngFor="let items of stockItem">
+    <img [src]="items.picture" *ngIf="items.picture" />
+    <ion-card-content>
+      <ion-card-title>
+        {{ items.name }}
+      </ion-card-title>
+      <p>
+        {{items.desc}}
+      </p>
+    </ion-card-content>
+    <ion-buttons align="center">
+      <button ion-button color="secondary"> J'ai faim !&nbsp;
+        <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-card>
+
+
 </ion-content>

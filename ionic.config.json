@@ -2,5 +2,7 @@
   "name": "Pizza",
   "app_id": "f3541164",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }

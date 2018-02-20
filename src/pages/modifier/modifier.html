@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>modifier</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <ion-item>
+    <ion-label color="red" floating>{{selectedItem.name}}</ion-label>
+    <ion-input [(ngModel)]="selectedItem.name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="red" floating>Description</ion-label>
+    <ion-textarea [(ngModel)]="selectedItem.desc"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="red" floating>{{selectedItem.price}}</ion-label>
+    <ion-input [(ngModel)]="selectedItem.price"></ion-input>
+  </ion-item> <br />
+
+  <button ion-button (click)="addIngred()">Choisir ses ingrédients</button>
+  <div *ngIf="ingredient">Les ingrédients :
+    <div *ngFor="let i of ingredient"> {{i}}
+    </div>
+  </div>
+
+  <ion-label>Choisir une image</ion-label>
+  <img src="{{selectedItem.picture}}">
+  <button ion-button block (click)="TakePhoto()">Prendre une photo</button> <br/>
+  <button ion-button block (click)="importPhoto()">Importer une photo</button> <br/>
+  <img [src]="base64Image" *ngIf="base64Image">
+  <img [src]="base64Image" *ngIf="imageImport">
+
+
+  <button ion-button color="red" (click)="modifPizza()">Enregistrer les modifications</button>
+</ion-content>
+

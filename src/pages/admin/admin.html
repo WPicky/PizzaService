@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Gérer les pizzas</ion-title>
+    <ion-buttons (click)="reload()">
+      <button class="homeButt">
+        <ion-icon ios="ios-refresh" md="md-refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card *ngFor="let items of stockItem">
+    <img [src]="items.picture" *ngIf="items.picture" />
+    <ion-card-content>
+      <ion-card-title>
+        {{ items.name }}
+      </ion-card-title>
+      <p>
+        {{items.desc}}
+      </p>
+    </ion-card-content>
+    <ion-buttons align="center">
+      <button ion-button color="light" (click)="itemTappede($event, items)">
+        <ion-icon ios="ios-create" md="md-create"></ion-icon>&nbsp;
+        Modifier
+      </button>
+      <button ion-button color="danger" (click)="Supprimer(items)">  <ion-icon ios="ios-trash" md="md-trash"></ion-icon>&nbsp;Supprimer</button>
+    </ion-buttons>
+  </ion-card>
+
+
+</ion-content>
+

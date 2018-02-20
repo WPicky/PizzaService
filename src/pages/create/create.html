@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Créer ma pizza</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label color="red" floating>Nom de la pizza</ion-label>
+    <ion-input [(ngModel)]="newPizz.name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="red" floating>Description</ion-label>
+    <ion-input [(ngModel)]="newPizz.desc"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="red" floating>Prix</ion-label>
+    <ion-input [(ngModel)]="newPizz.price"></ion-input>
+  </ion-item> <br />
+
+  <button ion-button (click)="addIngred()">Choisir ses ingrédients</button>
+  <div *ngIf="ingredient">Les ingrédients :
+    <div *ngFor="let i of ingredient"> {{i}}
+    </div>
+  </div>
+
+  <ion-label>Choisir une image</ion-label>
+  <button ion-button block (click)="TakePhoto()">Prendre une photo</button> <br/>
+  <button ion-button block (click)="importPhoto()">Importer une photo</button> <br/>
+  <img [src]="base64Image" *ngIf="base64Image">
+  <img [src]="base64Image" *ngIf="imageImport">
+
+
+  <button ion-button color="red" (click)="createPizza()">Créer !</button>
+</ion-content>
