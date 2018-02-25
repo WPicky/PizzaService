@@ -162,12 +162,6 @@ export class CreatePage {
 
 
 
-  addToPizza(){
-
-
-  }
-
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreatePage');
   }

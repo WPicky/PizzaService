@@ -48,7 +48,9 @@ export class AdminPage {
 
   Supprimer(item) {
     this.pizzaServ.delete(item.id).then(
-      (success) => this.reload(),
+      (success) => setTimeout(function(){
+        this.presentToast("Pizza supprimée !");
+        this.reload(); }, 3000),
       (err) => console.error(err)
     );
   }

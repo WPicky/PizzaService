@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-title>Home</ion-title>
     <ion-buttons end>
-      <button class="homeButt">
+      <button class="homeButt" (click)="paniers()">
         <ion-icon ios="ios-basket" md="md-basket"></ion-icon>
       </button>
     </ion-buttons>
@@ -36,7 +36,7 @@
       </p>
     </ion-card-content>
     <ion-buttons align="center">
-      <button ion-button color="secondary"> <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+      <button ion-button color="light"> <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
         &nbsp;Ajouter au panier
       </button>
     </ion-buttons>
@@ -54,7 +54,7 @@
       </p>
     </ion-card-content>
     <ion-buttons align="center">
-      <button ion-button color="secondary"> J'ai faim !&nbsp;
+      <button ion-button color="light" (click)="ajouterPanier($event, items)"> J'ai faim !&nbsp;
         <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
       </button>
     </ion-buttons>

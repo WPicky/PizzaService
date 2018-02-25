@@ -8,32 +8,36 @@
 <ion-content padding>
 
   <ion-item>
-    <ion-label color="red" floating>Nom de la pizza</ion-label>
+    <ion-label floating>Nom de la pizza</ion-label>
     <ion-input [(ngModel)]="newPizz.name"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label color="red" floating>Description</ion-label>
+    <ion-label floating>Description</ion-label>
     <ion-input [(ngModel)]="newPizz.desc"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label color="red" floating>Prix</ion-label>
+    <ion-label floating>Prix</ion-label>
     <ion-input [(ngModel)]="newPizz.price"></ion-input>
   </ion-item> <br />
 
-  <button ion-button (click)="addIngred()">Choisir ses ingrédients</button>
-  <div *ngIf="ingredient">Les ingrédients :
+
+  <div class="label-ingred" *ngIf="ingredient">Les ingrédients :
     <div *ngFor="let i of ingredient"> {{i}}
     </div>
   </div>
+  <ion-buttons align="center" class="butt">
+    <button ion-button round color="dark" (click)="addIngred()">Choisir ses ingrédients</button>
+  </ion-buttons>
 
-  <ion-label>Choisir une image</ion-label>
-  <button ion-button block (click)="TakePhoto()">Prendre une photo</button> <br/>
-  <button ion-button block (click)="importPhoto()">Importer une photo</button> <br/>
+  <ion-label>Choisir une image :</ion-label>
+  <button ion-button block color="dark" class="butt" (click)="TakePhoto()">Prendre une photo</button> <br/>
+  <button ion-button block color="dark" class="butt" (click)="importPhoto()">Importer une photo</button> <br/>
   <img [src]="base64Image" *ngIf="base64Image">
   <img [src]="base64Image" *ngIf="imageImport">
 
-
-  <button ion-button color="red" (click)="createPizza()">Créer !</button>
+  <ion-buttons align="center" class="butt">
+    <button ion-button round large color="light" (click)="createPizza()">Créer !</button>
+  </ion-buttons>
 </ion-content>
